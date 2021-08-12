@@ -1,0 +1,33 @@
+!!!!!!!!!!!!!!!! Reverse Sort  !!!!!!!!!!!!!!!!!!!!!!!!!!
+
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    for(int i=1;i<=t;i++){
+        int n;
+        cin>>n;
+        vector<int>v;
+        for(int i=0;i<n;i++){
+            int a;
+            cin>>a;
+            v.push_back(a);
+        }
+        
+        long long sum=0;
+        for(int j=0;j<n-1;j++){
+            int min = *min_element(v.begin()+j,v.end());
+            auto x=find(v.begin(),v.end(),min);
+            
+            reverse(v.begin()+j,x+1);
+            sum+=distance(v.begin(),x)-j+1;
+            
+        }
+        
+        
+        
+        cout<<"Case #"<<i<<": "<<sum<<endl;
+    }
+}
